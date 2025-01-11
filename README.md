@@ -26,7 +26,7 @@ npm i
 
 ### build + preview + watch
 ~~~
-gulp
+gulp front
 ~~~
 
 ### build
