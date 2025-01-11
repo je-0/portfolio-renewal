@@ -1,0 +1,71 @@
+@use "sass:meta"; 
+
+// hidden
+@mixin hidden {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@mixin btn-close($size, $thickness, $color) {
+    width: $size;
+    height: $size;
+    & > span {
+        @include hidden;
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: calc(50% - 2px);
+        width: 100%;
+        height: $thickness;
+        background-color: $color;
+    }
+    &:before {
+        transform: translate(-50%) rotate(45deg);
+        width: 120%;
+    }
+    &:after {
+        transform: translate(-50%) rotate(-45deg);
+        width: 120%;
+    }
+}
+
+
+
+// 반응형 
+@mixin Mo {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: 769px) and (max-width: 1279px) {
+        @content;
+    }
+}
+//  pc
+@mixin pc {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+// size rem
+@function rem($size) {
+    $root-size: 10px;
+    @if string == meta.type-of($size) {
+        @return $size;
+    } @else if 0 == $size {
+        @return 0;
+    } @else {
+        @return calc($size / $root-size * 1rem);
+    }
+}

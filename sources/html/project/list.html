@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	@@include('@@webRoot/__include/app-head.html',{ "title": "Project"
+	})
+</head>
+
+<body>
+	@@include('@@webRoot/__include/app-a11y.html')
+	<div class="app">
+		@@include('@@webRoot/__include/app-header.html')
+
+		<!-- app-container [s]-->
+		<div class="app-container">
+			<!-- app-content [s] -->
+			<!-- [D] 페이지 클래스 "pg-^" -->
+			<main class="app-content pg-project" tabindex="-1" id="content">
+				<!-- section -->
+				<div class="section project-wrap">
+					<div class="section-tit">
+						<h2>프로젝트 자세히 보기</h2>
+						<p class="sub-txt">
+							해당 프로젝트를 선택하시면 상세내용 및 URL 확인이 가능합니다.
+						</p>
+					</div>
+					<div class="section-cont">
+						<div class="list-head">
+							<div class="total-list">
+								<span>총</span>
+								<span class="data-list-num"></span>
+								<span>개</span>
+							</div>
+							<div class="list-type">
+								<a href="javascript:;" class="btn-list">리스트</i></a>
+								<a href="javascript:;" class="btn-card is-active">카드</i></a>
+							</div>
+						</div>
+						<div class="project-list type-card">
+							<ul>
+								<li>
+									<a href="javascript:;" role="button" class="js-layer-open" data-layer-name="">
+										<p class="project-type"></p>
+										<p class="project-name"></p>
+										<p class="project-date"></p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</main>
+			<!-- app-content [e] -->
+		</div>
+		<!-- app-container [e]-->
+		@@include('@@webRoot/__include/app-footer.html')
+	</div>
+	<!-- Layer [s] -->
+	<div class="layer-wrap">
+		@@include('@@webRoot/_layer/project.html')
+	</div>
+
+
+	@@include('@@webRoot/__include/common-js.html')
+
+	<!-- Add Library (this page only)-->
+	<script src="@@webRoot/../resources/assets/js/ui.js"></script>
+	<script>
+		const projectData = {
+			projects: [{
+					type: '운영',
+					name: '삼성반도체 DS 사이트 운영',
+					date: '2024.06 ~',
+					dataLayer: 'smasungDS',
+					datadate: '2024',
+				},
+				{
+					type: '운영',
+					name: '아모레퍼시픽 사이트 운영',
+					date: '2024.02 ~ 2024.06',
+					dataLayer: 'amore',
+					datadate: '2024',
+				},
+				{
+					type: '구축/Roll Out',
+					name: 'LG Global 사이트 Roll Out',
+					date: '2023.06 ~ 2024.12',
+					dataLayer: 'lgGlobal',
+					datadate: '2023',
+				},
+				{
+					type: '구축',
+					name: '애터미 쇼핑몰 개편',
+					date: '2022.01 ~ 2023.02',
+					dataLayer: 'atomy',
+					datadate: '2022',
+				},
+				{
+					type: '구축',
+					name: '현대글로비스 온라인 수출 플랫폼 구축',
+					date: '2021.08 ~ 2022.01',
+					dataLayer: 'glovis',
+					datadate: '2021',
+				},
+				{
+					type: '구축',
+					name: 'KB금융그룹(지주)의 디지털 아카이브 건',
+					date: '2021.06 ~ 2021.08',
+					dataLayer: 'kbarchive',
+					datadate: '2021',
+				},
+
+				{
+					type: '구축',
+					name: '2021 서브원 리뉴얼',
+					date: '2021.04 ~ 2021.06',
+					dataLayer: 'serveoneRenewal',
+					datadate: '2021',
+				},
+				{
+					type: '운영/유지보수',
+					name: '2021 서브원 유지보수',
+					date: '2021.03 ~ 2021.04',
+					dataLayer: 'serveoneSM2021',
+					datadate: '2021',
+				},
+
+				{
+					type: '구축',
+					name: '삼성전자서비스구축',
+					date: '2020.09 ~ 2021.03',
+					dataLayer: 'samsungS',
+					datadate: '2020',
+				},
+
+				{
+					type: '구축',
+					name: 'LG화학 홍보포탈 -고객불편설문페이지',
+					date: '2020.09 ~ 2020.09',
+					dataLayer: 'Lg',
+					datadate: '2020',
+				},
+				{
+					type: '운영/유지보수',
+					name: '2020년 판토스 유지보수',
+					date: '2020.08 ~ 2020.09',
+					dataLayer: 'pantos',
+					datadate: '2020',
+				},
+				{
+					type: '구축',
+					name: '현대차 싱가포르-호주 온라인 판매시스템구축',
+					date: '2020.05 ~ 2020.07',
+					dataLayer: 'hos',
+					datadate: '2020',
+				},
+				{
+					type: '유지보수',
+					name: '2020년 서브원 유지보수',
+					date: '2020.03 ~ 2020.04',
+					dataLayer: 'serveoneSM2020',
+					datadate: '2020',
+				},
+				{
+					type: '구축',
+					name: '이노션 미디어바잉 옥외미디어 기능개선',
+					date: '2020.01 ~ 2020.03',
+					dataLayer: 'inotion',
+					datadate: '2020',
+				},
+				{
+					type: '구축',
+					name: '이지웰페어 홈페이지 개편',
+					date: '2020.01 ~ 2020.1',
+					dataLayer: 'ezwell',
+					datadate: '2020',
+				},
+			],
+		};
+
+		// 프로젝트 리스트 생성
+		const projectList = document.querySelector('.project-list ul');
+		const templateList = document.querySelector('.project-list ul li');
+
+		projectData.projects.forEach((project, index) => {
+			let newList;
+			if (index === 0) {
+				newList = templateList;
+			} else {
+				newList = templateList.cloneNode(true);
+			}
+
+			const typeElement = newList.querySelector('.project-type');
+			const nameElement = newList.querySelector('.project-name');
+			const dateElement = newList.querySelector('.project-date');
+			const linkElement = newList.querySelector('a');
+
+			typeElement.textContent = project.type;
+			nameElement.textContent = project.name;
+			dateElement.textContent = project.date;
+			linkElement.setAttribute('data-layer-name', project.dataLayer);
+			linkElement.setAttribute('data-layer-date', project.datadate);
+
+			if (index !== 0) {
+				projectList.appendChild(newList);
+			}
+		});
+
+		// 전체 갯수 노출
+		var totalNum = document.querySelector('.project-list > ul').children.length;
+		document.querySelector('.data-list-num').prepend(totalNum);
+
+		// 리스트 타입 정하기
+		document.querySelectorAll('.btn-list, .btn-card').forEach(function (button) {
+			button.addEventListener('click', function () {
+				var projectList = document.querySelector('.project-list');
+				projectList.classList.toggle('type-card', button.classList.contains('btn-card'));
+				projectList.classList.toggle('type-list', button.classList.contains('btn-list'));
+				document.querySelectorAll('.btn-list, .btn-card').forEach(function (btn) {
+					btn.classList.remove('is-active');
+				});
+				button.classList.add('is-active');
+			});
+		});
+	</script>
+</body>
+
+</html>

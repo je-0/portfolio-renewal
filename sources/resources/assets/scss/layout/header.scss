@@ -1,0 +1,82 @@
+@use '../base/mixin' as *; 
+@use '../base/color' as *; 
+
+.app-header {
+    position: fixed;
+    width: 100%;
+    padding: rem(15px) 0;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    transition: all 0.2s ease-in;
+    z-index: 5;
+    > .inner {
+        padding: 0 rem(20px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+           > a{
+            display: block;
+            height: rem(20px);
+            img{
+                height: 100%;
+            }
+           }
+        }
+        .app-gnb{
+          ul {
+            > li{
+                font-size: rem(14px);
+                font-weight: 500;
+                letter-spacing: -0.1rem;
+            }
+          }
+        }
+    }
+    &.is-active{
+        border-bottom: 1px solid #ddd;
+    }
+}
+@include tablet{
+    .app-header {
+        padding: rem(20px) 0;
+        > .inner {
+            padding: 0 rem(30px);
+            .logo {
+               > a{
+                    height: rem(39px);
+               }  
+            }
+            .app-gnb{
+                ul {
+                  > li{
+                    font-size: rem(16px);
+                  }
+                }
+            }
+        }
+    }
+}
+@include pc{
+    .app-header {
+        padding: rem(24px) 0;
+        > .inner {
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 rem(24px);
+            .logo {
+               > a{
+                    height: rem(39px);
+               }  
+            }
+            .app-gnb{
+                ul {
+                  > li{
+                    font-size: rem(18px);
+                  }
+                }
+            }
+        }
+    }
+}
+

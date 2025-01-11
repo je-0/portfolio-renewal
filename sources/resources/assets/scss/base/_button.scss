@@ -1,0 +1,50 @@
+@use '../base/mixin' as *; 
+@use '../base/color' as *; 
+
+
+/* IE FF Remove Click Action */
+button:active > span,
+button:active > i,
+button:focus > span,
+button:focus > i {
+    position: relative;
+}
+label:before {
+    box-sizing: border-box;
+}
+input[readonly] {
+    pointer-events: auto;
+}
+a,
+input,
+select,
+textarea,
+button {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+.btn-basic {
+    display: inline-flex;
+    vertical-align: middle;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: rem(45px);
+    border-radius: rem(8px);
+    font-size: rem(16px);
+    color: $colorWhite;
+    text-align: center;
+    background-color: $MainColor;
+    > span{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    &.btn-disabled{
+        background-color: #efefef;
+    }
+}

@@ -1,0 +1,36 @@
+@use '../base/mixin' as *; 
+@use '../base/color' as *; 
+
+.app-footer{
+	padding:rem(20px) rem(15px);
+	text-align: center;
+	background-color: #efefef;
+	.btn-top{
+		opacity: 0;
+		transition: all 0.4s ease-in;
+		position: fixed;
+		width: rem(50px);
+		height: rem(50px);
+		bottom: rem(20px);
+		right: rem(20px);
+		border-radius: 50%;
+		border:1px solid $MainColor;
+		font-size: rem(12px);
+		color:#000;
+		font-weight: 500;
+		padding: rem(10px) 0;
+		z-index: 10;
+		background-color: #fff;
+		&.is-active{
+			opacity: 1;
+			display: block;
+		}
+	}
+	.copyright{
+		font-size: rem(14px);
+		color: $color888;
+	}
+	.btn-box{
+		margin-top: rem(20px);
+	}
+}

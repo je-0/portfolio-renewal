@@ -1,0 +1,32 @@
+@use '../base/mixin' as *; 
+@use '../base/color' as *; 
+
+/* Container */
+.app-container {
+    padding-top: rem(52px);
+    padding-bottom: rem(80px);
+    > .app-content {
+        min-height: calc(100vh - rem(138px));
+        padding: 0 rem(12px);
+    }
+}
+
+@include tablet{
+    .app-container {
+        padding-top: rem(80px);
+        > .app-content {
+            min-height: auto;
+            padding: 0 rem(24px);
+        }
+    }
+}
+
+@include pc{
+    .app-container {
+        padding-top: rem(100px);
+        > .app-content {
+            min-height: auto;
+            padding: 0 rem(24px);
+        }
+    }
+}
