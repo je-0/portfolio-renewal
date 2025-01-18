@@ -30,3 +30,65 @@
         }
     }
 }
+
+//dark mode
+body{
+    &.dark-mode{
+        background-color: #000;
+        color:#fff;
+        .app-header{
+            background-color: #000;
+            .logo{
+                background-color: #fff;
+            }
+        }
+        .layer-wrap{
+            .layer{
+                background-color: #000;
+                border: 1px solid #fff;
+                .layer-cont {
+                    dd{
+                        color: #fff;
+                    }
+                }
+            }
+            .btn-layer-close{
+                &:after,&:before{
+                    background-color: #fff;
+                }
+            }
+        }
+        .btn-basic.btn-disabled{
+            color: #000;
+        }
+        .career.section{
+            .section-cont{
+                dl {
+                    dd{
+                        color:#fff;
+                    }
+                }
+            }
+        }
+        .people {
+            .section-cont {
+                > ul{
+                    > li{
+                        border:1px solid #fff;
+                    }
+                }
+            }
+        }
+        .app-footer{
+            background-color: #000;
+            img{
+                backdrop-filter: invert(1);
+                border-radius: 50%;
+            }
+            .btn-top{
+                background-color: #000;
+                color:#fff;
+            }
+        }
+    }
+}

@@ -33,4 +33,44 @@
 	.btn-box{
 		margin-top: rem(20px);
 	}
+	.dark-mode-toggle{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: rem(20px);
+		.switch-box {
+			position: relative;
+			margin-left: rem(8px);
+			input{
+				opacity: 0;
+				width: 0;
+				height: 0;
+				&:checked + .slider-area {
+					background-color: $MainColor;
+				}
+				&:checked + .slider-area:before {
+					transform: translateX(34px);
+				}
+			}
+		}
+		.slider-area {
+			display: inline-block;
+			width: rem(60px);
+			height: rem(24px);
+			background-color: $color353535;
+			transition: 0.4s;
+			border-radius: rem(20px);
+			&:before {
+				position: absolute;
+				content: "";
+				height: 12px;
+				width: 12px;
+				border-radius: 50%;
+				top: calc(50% - 6px);
+				left: 9px;
+				background-color: $colorWhite;
+				transition: 0.4s;
+			}
+		}
+	}
 }
